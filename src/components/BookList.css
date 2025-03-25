@@ -1,0 +1,110 @@
+.book-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-items: center;
+  }
+  
+  .book-card {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 300px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateY(0);
+    opacity: 0;
+    animation: fadeInUp 0.6s forwards;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .book-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: #6a1b9a;
+    transition: all 0.3s ease;
+  }
+  
+  .book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  }
+  
+  .book-card:hover::before {
+    width: 100%;
+    opacity: 0.1;
+  }
+  
+  .book-card h3 {
+    color: #2d2d2d;
+    margin-bottom: 1rem;
+    font-size: 1.4rem;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .book-card p {
+    color: #555;
+    margin: 0.8rem 0;
+    position: relative;
+    z-index: 1;
+  }
+  
+  .book-price {
+    color: #ff9100 !important;
+    font-weight: 600;
+    font-size: 1.2rem;
+  }
+  
+
+  .delete-btn {
+    background: #e53935;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    width: fit-content;
+    align-self: center;
+  }
+  
+  .delete-btn:hover {
+    background: #c62828;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(230, 57, 53, 0.3);
+  }
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .book-grid {
+      grid-template-columns: 1fr;
+      padding: 1rem;
+    }
+    
+    .book-card {
+      max-width: 100%;
+      padding: 1.5rem;
+    }
+  }
